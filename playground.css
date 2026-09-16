@@ -1,0 +1,23 @@
+:root {
+  --bg: #15181f;
+  --surface: #1c2029;
+  --raised: #242936;
+  --line: #2e3442;
+  --text: #dfe3ea;
+  --muted: #8a93a6;
+  --accent: #f0b54a;
+  --accent-ink: #1b1400;
+  --ok: #6cc59a;
+  --fail: #ef7a6f;
+  --keyword: #c49bf2;
+  --function: #7fb6f5;
+  --number: #f0b54a;
+  --string: #9fd48a;
+  --ui: "Inter", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "Cascadia Code", ui-monospace, Consolas, monospace;
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --radius: 6px;
+}
