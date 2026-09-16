@@ -255,3 +255,56 @@ summary {
 .fail {
   background: var(--fail);
 }
+
+.editor {
+  grid-area: editor;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--bg);
+}
+
+.editor-tabs {
+  display: flex;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.editor-tab {
+  padding: var(--s2) var(--s4);
+  background: var(--bg);
+  border-top: 2px solid var(--accent);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.code {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  padding-block: var(--s3);
+  font: 0.875rem/1.7 var(--mono);
+}
+
+.gutter {
+  margin: 0;
+  padding: 0 var(--s3) 0 var(--s4);
+  list-style: none;
+  color: var(--muted);
+  text-align: right;
+  user-select: none;
+  opacity: 0.6;
+}
+
+.gutter .is-current {
+  color: var(--text);
+  opacity: 1;
+}
+
+pre {
+  flex: 1;
+  margin: 0;
+  padding-right: var(--s4);
+  font: inherit;
+  tab-size: 2;
+}
