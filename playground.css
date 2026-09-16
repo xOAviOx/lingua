@@ -21,3 +21,22 @@
   --s4: 1rem;
   --radius: 6px;
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #eef0f4;
+    --surface: #ffffff;
+    --raised: #f5f6f9;
+    --line: #dde1e8;
+    --text: #1d2230;
+    --muted: #5d6679;
+    --accent: #c98a12;
+    --accent-ink: #ffffff;
+    --ok: #23865a;
+    --fail: #c43d32;
+    --keyword: #7a3fc2;
+    --function: #2463b5;
+    --number: #a2640a;
+    --string: #3d7a26;
+  }
+}
