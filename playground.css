@@ -191,3 +191,67 @@ kbd {
   background: rgb(0 0 0 / 0.15);
   font: 0.6875rem var(--mono);
 }
+
+.sidebar {
+  grid-area: side;
+  overflow-y: auto;
+  padding: var(--s3) var(--s2);
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+}
+
+details + details {
+  margin-top: var(--s3);
+}
+
+summary {
+  padding: var(--s1) var(--s2);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.list {
+  margin: var(--s1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list a,
+.runs li {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: 0.3125rem var(--s2);
+  border-radius: var(--radius);
+}
+
+.list a:hover {
+  background: var(--raised);
+}
+
+.list .is-active {
+  background: var(--raised);
+  box-shadow: inset 2px 0 var(--accent);
+}
+
+.meta {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.ok {
+  background: var(--ok);
+}
+
+.fail {
+  background: var(--fail);
+}
