@@ -7,5 +7,32 @@
     <link rel="stylesheet" href="playground.css" />
   </head>
   <body>
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">λ</span>Lingua</a>
+      <h1 class="sr-only">Lingua playground</h1>
+      <div class="file">
+        <label class="sr-only" for="title">Program name</label>
+        <input
+          id="title"
+          class="file-name"
+          type="text"
+          value="fibonacci"
+          spellcheck="false"
+        />
+        <span class="file-status">Saved</span>
+      </div>
+      <nav class="links">
+        <a href="#">Examples</a>
+        <a href="#">Docs</a>
+        <a href="#">Log in</a>
+      </nav>
+      <div class="actions">
+        <button class="btn" type="button">Share</button>
+        <button class="btn" type="button">Save</button>
+        <button class="btn btn-primary" type="button">
+          Run <kbd>Ctrl ↵</kbd>
+        </button>
+      </div>
+    </header>
   </body>
 </html>
