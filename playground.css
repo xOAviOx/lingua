@@ -650,3 +650,24 @@ h1 {
     margin-left: 0;
   }
 }
+
+.topbar .links { display: flex; margin: 0; gap: 24px; }
+.field-label { display: block; margin: 16px 20px 6px; font-weight: 600; }
+.card .select { margin: 0 20px 10px; width: calc(100% - 40px); }
+.code-editor { flex: 1; min-height: 300px; width: calc(100% - 40px); margin: 0 20px; padding: 16px; resize: vertical; border: 0; border-radius: 7px; outline-offset: 2px; background: var(--code-bg); color: var(--code-text); font: 0.875rem/1.6 var(--mono); }
+.editor-actions { display: flex; align-items: center; gap: 16px; padding: 16px 20px; }
+.editor-actions .btn-run, .inline-button { width: auto; min-width: 100px; height: 42px; padding: 0 22px; text-decoration: none; }
+.console { white-space: pre-wrap; overflow-wrap: anywhere; min-height: 300px; }
+.help { margin: 0 20px 16px; color: var(--muted); }
+.narrow { width: min(100%, 800px); margin: 0 auto; gap: 22px; }
+.text-card, .form-card { padding: 24px; }
+.text-card h2 { margin-bottom: 10px; }
+.text-card p, .text-card li { margin-top: 10px; font-size: 1rem; }
+.text-card ol { list-style: decimal; padding-left: 24px; }
+.form-card { gap: 8px; }
+.form-card label { font-weight: 600; }
+.form-card input, .form-card textarea { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 6px; font: inherit; }
+.form-card label:not(:first-child) { margin-top: 12px; }
+.form-card button { margin-top: 16px; }
+.form-card #form-status { min-height: 20px; }
+@media (max-width: 699px) { .topbar { height: auto; min-height: 70px; gap: 12px; } .links { display: flex; margin: 0; gap: 12px; } .workspace { grid-template-columns: 1fr; } }
