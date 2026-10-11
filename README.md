@@ -4,7 +4,8 @@ Lingua is our Web Programming course project. It is a small programming language
 
 ## What works now
 
-- Three linked pages: Playground, About, and Feedback.
+- Four linked pages: Playground, Docs, About, and Feedback.
+- A short Docs tutorial with the current syntax, examples, rules, and planned features.
 - A code box with a Run button, Ctrl + Enter shortcut, and two examples.
 - A simple JavaScript runner for `let`, `print`, numbers, strings, and `+`, `-`, `*`, `/` expressions.
 - Error messages that show the line number.
@@ -30,7 +31,7 @@ Open `http://localhost:3000` in a browser. Use the server URL for the feedback f
 
 `feedback.html` has the form. `feedback.js` checks the fields and sends JSON with `fetch`. `server.js` checks the data again and writes it to `data/feedback.json`. We validate on both sides so the page gives quick feedback and the server does not accept bad input.
 
-`about.html` explains the project to visitors. `playground.css` styles all three pages.
+`docs.html` teaches the current syntax. `about.html` explains the project to visitors. `playground.css` styles all four pages.
 
 ## Course roadmap
 

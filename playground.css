@@ -670,4 +670,8 @@ h1 {
 .form-card label:not(:first-child) { margin-top: 12px; }
 .form-card button { margin-top: 16px; }
 .form-card #form-status { min-height: 20px; }
+.docs-page { gap: 18px; }
+.docs-page .text-card ul { padding-left: 24px; }
+.docs-page .text-card li { list-style: disc; }
+.example-code { margin: 14px 0; padding: 18px; overflow-x: auto; border-radius: 7px; background: var(--code-bg); color: var(--code-text); font: 0.875rem/1.6 var(--mono); }
 @media (max-width: 699px) { .topbar { height: auto; min-height: 70px; gap: 12px; } .links { display: flex; margin: 0; gap: 12px; } .workspace { grid-template-columns: 1fr; } }
