@@ -5,7 +5,7 @@ Lingua is our Web Programming course project. It is a small programming language
 ## What works now
 
 - Four linked pages: Playground, Docs, About, and Feedback.
-- A short Docs tutorial with the current syntax, examples, rules, and planned features.
+- A beginner Docs tutorial with small steps, expected output, a syntax table, and common mistakes.
 - A code box with a Run button, Ctrl + Enter shortcut, and two examples.
 - A simple JavaScript runner for `let`, `print`, numbers, strings, and `+`, `-`, `*`, `/` expressions.
 - Error messages that show the line number.

@@ -1,16 +1,22 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lingua Docs</title><link rel="stylesheet" href="playground.css"></head><body>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learn Lingua</title><link rel="stylesheet" href="playground.css"></head>
+<body>
 <header class="topbar"><a class="brand" href="playground.html">Lingua</a><nav class="links" aria-label="Main navigation"><a href="playground.html">Playground</a><a href="docs.html" aria-current="page">Docs</a><a href="about.html">About</a><a href="feedback.html">Feedback</a></nav></header>
-<main class="page narrow docs-page"><p class="eyebrow">Start here</p><h1>Learn Lingua</h1><p class="lede">This short guide shows everything the current playground can run.</p>
-<section class="card text-card"><h2>1. Run your first program</h2><p>Open the playground, replace the code in the box, and press Run or Ctrl + Enter.</p><pre class="example-code">print("Hello, World!");</pre><p>The output box will show <strong>Hello, World!</strong>.</p></section>
-<section class="card text-card"><h2>2. Make a variable</h2><p>Use <code>let</code>, a name, an equals sign, and a value. End the line with a semicolon.</p><pre class="example-code">let name = "Avi";
-print(name);</pre><p>Names can use letters, numbers, and underscores. They must start with a letter or underscore.</p></section>
-<section class="card text-card"><h2>3. Do simple maths</h2><p>Lingua currently supports numbers and the four basic operators.</p><pre class="example-code">let a = 8;
-let b = 2;
-print(a + b);
-print(a - b);
-print(a * b);
-print(a / b);</pre><p>This prints 10, 6, 16, and 4 on separate lines. Expressions are read from left to right, so use one operator at a time when you want predictable results.</p></section>
-<section class="card text-card"><h2>Rules to remember</h2><ul><li>Write one statement on each line.</li><li>Finish each statement with <code>;</code>.</li><li>Put text inside double quotes.</li><li>Use <code>print(...);</code> to see a value.</li><li>An empty line is okay.</li></ul><p>If a line cannot run, the output box shows its line number and an error message.</p></section>
-<section class="card text-card"><h2>What is coming later?</h2><p>Conditions, loops, functions, saving programs, and MongoDB are planned for a later phase. They are not part of the current runner.</p></section>
-<a class="btn-run inline-button" href="playground.html">Try it now</a></main><footer class="footer"><span>Lingua · Web Programming project</span><a href="feedback.html">Give feedback</a></footer></body></html>
+<main class="page narrow docs-page">
+  <p class="eyebrow">Beginner guide</p><h1>Learn Lingua, one step at a time</h1><p class="lede">You only need two commands to get started: <code>let</code> stores a value and <code>print</code> shows it. Try each example in the <a href="playground.html">playground</a>.</p>
+  <section class="card text-card"><h2>Step 1: Print something</h2><p>Type this in the code box and click <strong>Run</strong>.</p><pre class="example-code">print("Hello!");</pre><p><strong>Output:</strong></p><pre class="example-output">Hello!</pre><p>Text goes inside double quotes. The semicolon tells Lingua where the statement ends.</p></section>
+  <section class="card text-card"><h2>Step 2: Store a value</h2><p>A variable is a name for a value. Here, <code>name</code> stores the text <code>"Avi"</code>.</p><pre class="example-code">let name = "Avi";
+print(name);</pre><p><strong>Output:</strong></p><pre class="example-output">Avi</pre><p>When you write <code>print(name);</code>, Lingua looks up the value stored in <code>name</code>.</p></section>
+  <section class="card text-card"><h2>Step 3: Work with numbers</h2><p>Numbers do not need quotes. You can store them and use them in calculations.</p><pre class="example-code">let marks = 40;
+print(marks + 10);</pre><p><strong>Output:</strong></p><pre class="example-output">50</pre><p>You can use <code>+</code> to add, <code>-</code> to subtract, <code>*</code> to multiply, and <code>/</code> to divide.</p></section>
+  <section class="card text-card"><h2>Step 4: Use two variables</h2><p>Variables can be used together in a calculation.</p><pre class="example-code">let price = 20;
+let quantity = 3;
+print(price * quantity);</pre><p><strong>Output:</strong></p><pre class="example-output">60</pre><p>Try changing either number and running the program again.</p></section>
+  <section class="card text-card"><h2>Quick syntax guide</h2><table class="docs-table"><thead><tr><th>What you want</th><th>Write this</th></tr></thead><tbody><tr><td>Show text</td><td><code>print("Hi");</code></td></tr><tr><td>Save a number</td><td><code>let score = 10;</code></td></tr><tr><td>Save text</td><td><code>let city = "Delhi";</code></td></tr><tr><td>Show a variable</td><td><code>print(score);</code></td></tr><tr><td>Do maths</td><td><code>print(score + 5);</code></td></tr></tbody></table><p>Write one statement on each line. Empty lines are fine. A variable name can contain letters, numbers, and underscores, but it must start with a letter or underscore.</p></section>
+  <section class="card text-card"><h2>Common mistakes</h2><ul><li><strong>Missing semicolon:</strong> <code>print("Hi")</code> needs <code>;</code> at the end.</li><li><strong>Missing quotes:</strong> <code>print(Hello);</code> looks for a variable named Hello. Use <code>print("Hello");</code> for text.</li><li><strong>Unknown variable:</strong> create it with <code>let</code> before printing it.</li><li><strong>Wrong line format:</strong> put each <code>let</code> or <code>print</code> statement on its own line.</li></ul><p>The output box will show a line number when something goes wrong, so you know where to look.</p></section>
+  <section class="card text-card"><h2>What can Lingua do right now?</h2><p>The current version supports variables, text, numbers, the four basic maths operators, and printing output. It reads calculations from left to right. For now, use one operator per calculation if you need the usual maths order.</p><p>Conditions, loops, functions, saving programs, and MongoDB are planned for the final phase. They are not working yet.</p></section>
+  <a class="btn-run inline-button" href="playground.html">Open the playground</a>
+</main>
+<footer class="footer"><span>Lingua · Web Programming project</span><a href="feedback.html">Give feedback</a></footer>
+</body></html>
