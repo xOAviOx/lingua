@@ -25,7 +25,7 @@ function calculate(expression, variables) {
       continue;
     }
 
-    const part = expression.slice(position).match(/^("[^"]*"|\d+(?:\.\d+)?|[a-zA-Z_]\w*|[()+*/-])/);
+    const part = expression.slice(position).match(/^("[^"]*"|\d+(?:\.\d+)?|[a-zA-Z_]\w*|\*\*|[()+*/%-])/);
     if (!part) throw new Error('Invalid expression');
     tokens.push(part[0]);
     position += part[0].length;
@@ -55,15 +55,27 @@ function calculate(expression, variables) {
     throw new Error('Invalid expression');
   }
 
-  function multiplication() {
-    let result = value();
+  function power() {
+    const result = value();
+    if (tokens[index] !== '**') return result;
 
-    while (tokens[index] === '*' || tokens[index] === '/') {
+    index++;
+    const exponent = power();
+    if (typeof result !== 'number' || typeof exponent !== 'number') throw new Error('Maths needs numbers');
+    return result ** exponent;
+  }
+
+  function multiplication() {
+    let result = power();
+
+    while (tokens[index] === '*' || tokens[index] === '/' || tokens[index] === '%') {
       const operator = tokens[index++];
-      const next = value();
+      const next = power();
       if (typeof result !== 'number' || typeof next !== 'number') throw new Error('Maths needs numbers');
-      if (operator === '/' && next === 0) throw new Error('Cannot divide by zero');
-      result = operator === '*' ? result * next : result / next;
+      if ((operator === '/' || operator === '%') && next === 0) throw new Error('Cannot divide by zero');
+      if (operator === '*') result *= next;
+      if (operator === '/') result /= next;
+      if (operator === '%') result %= next;
     }
 
     return result;
