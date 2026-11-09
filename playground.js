@@ -9,33 +9,86 @@ document.querySelector('#example').addEventListener('change', event => {
   code.value = examples[event.target.value];
   output.textContent = 'Ready to run.';
 });
+
 document.querySelector('#run').addEventListener('click', runCode);
 code.addEventListener('keydown', event => {
   if (event.ctrlKey && event.key === 'Enter') runCode();
 });
 
-function getValue(text, variables) {
-  text = text.trim();
-  if (/^"[^"]*"$/.test(text)) return text.slice(1, -1);
-  if (/^\d+(\.\d+)?$/.test(text)) return Number(text);
-  if (Object.hasOwn(variables, text)) return variables[text];
-  throw new Error('Unknown value: ' + text);
-}
-
 function calculate(expression, variables) {
-  const parts = expression.match(/"[^"]*"|\d+(?:\.\d+)?|[a-zA-Z_]\w*|[+*/-]/g);
-  const withoutOutsideSpaces = expression.replace(/"[^"]*"|\s+/g, part => part.startsWith('"') ? part : '');
-  if (!parts || parts.join('') !== withoutOutsideSpaces) throw new Error('Invalid expression');
+  const tokens = [];
+  let position = 0;
 
-  let result = getValue(parts[0], variables);
-  for (let i = 1; i < parts.length; i += 2) {
-    const next = getValue(parts[i + 1] || '', variables);
-    if (parts[i] === '+') result += next;
-    else if (parts[i] === '-') result -= next;
-    else if (parts[i] === '*') result *= next;
-    else if (parts[i] === '/') result /= next;
-    else throw new Error('Unknown operator');
+  while (position < expression.length) {
+    if (/\s/.test(expression[position])) {
+      position++;
+      continue;
+    }
+
+    const part = expression.slice(position).match(/^("[^"]*"|\d+(?:\.\d+)?|[a-zA-Z_]\w*|[()+*/-])/);
+    if (!part) throw new Error('Invalid expression');
+    tokens.push(part[0]);
+    position += part[0].length;
   }
+
+  let index = 0;
+
+  function value() {
+    const token = tokens[index++];
+
+    if (token === '-' || token === '+') {
+      const number = value();
+      if (typeof number !== 'number') throw new Error('Maths needs numbers');
+      return token === '-' ? -number : number;
+    }
+
+    if (token === '(') {
+      const result = addition();
+      if (tokens[index++] !== ')') throw new Error('Missing closing bracket');
+      return result;
+    }
+
+    if (token && token.startsWith('"')) return token.slice(1, -1);
+    if (token && /^\d/.test(token)) return Number(token);
+    if (Object.hasOwn(variables, token)) return variables[token];
+    if (token && /^[a-zA-Z_]\w*$/.test(token)) throw new Error('Unknown variable: ' + token);
+    throw new Error('Invalid expression');
+  }
+
+  function multiplication() {
+    let result = value();
+
+    while (tokens[index] === '*' || tokens[index] === '/') {
+      const operator = tokens[index++];
+      const next = value();
+      if (typeof result !== 'number' || typeof next !== 'number') throw new Error('Maths needs numbers');
+      if (operator === '/' && next === 0) throw new Error('Cannot divide by zero');
+      result = operator === '*' ? result * next : result / next;
+    }
+
+    return result;
+  }
+
+  function addition() {
+    let result = multiplication();
+
+    while (tokens[index] === '+' || tokens[index] === '-') {
+      const operator = tokens[index++];
+      const next = multiplication();
+
+      if (operator === '+') {
+        result += next;
+      } else {
+        if (typeof result !== 'number' || typeof next !== 'number') throw new Error('Maths needs numbers');
+        result -= next;
+      }
+    }
+
+    return result;
+  }
+
+  const result = addition();
+  if (index !== tokens.length) throw new Error('Invalid expression');
   return result;
 }
 
@@ -63,6 +116,7 @@ function runCode() {
         throw new Error('Line ' + (index + 1) + ': ' + error.message);
       }
     });
+
     output.textContent = results.join('\n') || 'Program finished with no output.';
   } catch (error) {
     output.textContent = error.message;
